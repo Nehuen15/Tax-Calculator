@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -55,5 +55,23 @@
   
   <h1 id='result'></h1>
   <h1 id='extra'></h1>
+  
+  <h1>Calcular MP sin recargo</h1>
+  
+  <label for="mpWOTax">Importe del posnet: </label>
+  <input type="number" id="mpWOTax" name="mpWOTax" value=0>
+  
+  <button onclick="calculateTotal3()">calcular</button>
+  
+  <script>
+        function calculateTotal3() {
+            const totalAmount2 = parseFloat(document.getElementById('mpWOTax').value);
+          const WithOutTax = (totalAmount2 / 105) *100
+          const recharge2 = cardAmount2 * 1.1;
+            document.getElementById('result2').innerText = `MP SIN RECARGO: $${WithOutTax.toFixed(2)}`;
+        }
+    </script>
+  
+   <h1 id='result2'></h1>
 </body>
 </html>
