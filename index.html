@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Payment Calculator</title>
+</head>
+<body>
+  <h1>5% de recargo</h1>
+    <label for="totalAmount">Precio total:</label>
+    <input type="number" id="totalAmount" name="totalAmount">
+
+    <label for="cardAmount">A pagar con MP:</label>
+    <input type="number" id="cardAmount" name="cardAmount" value=0>
+
+    <button onclick="calculateTotal()">calcular</button>
+
+
+    <script>
+        function calculateTotal() {
+            const totalAmount = parseFloat(document.getElementById('totalAmount').value);
+            const cardAmount = parseFloat(document.getElementById('cardAmount').value);
+          	const notValue = totalAmount*1.05;
+            const extraAmount = notValue - ((cardAmount *1.05)+(totalAmount-cardAmount)) ;
+      	    const recharge = cardAmount *1.05;
+            document.getElementById('result').innerText = `descuento: $${extraAmount.toFixed(2)}`;
+          document.getElementById('extra').innerText = `a pagar con MP: $${recharge.toFixed(2)}`;
+        }
+    </script>
+  
+  
+  <h1>10% de recargo</h1>
+    <label for="totalAmount2">Precio total:</label>
+    <input type="number" id="totalAmount2" name="totalAmount2">
+
+    <label for="cardAmount2">A pagar con MP:</label>
+  <input type="number" id="cardAmount2" name="cardAmount2" value=0>
+
+    <button onclick="calculateTotal2()">calcular</button>
+
+    
+
+    <script>
+        function calculateTotal2() {
+            const totalAmount2 = parseFloat(document.getElementById('totalAmount2').value);
+            const cardAmount2 = parseFloat(document.getElementById('cardAmount2').value);
+          	const notValue2 = totalAmount2*1.1;
+            const extraAmount2 = notValue2 - ((cardAmount2 *1.1)+(totalAmount2-cardAmount2)) ;
+          const recharge2 = cardAmount2 * 1.1;
+            document.getElementById('result').innerText = `descuento: $${extraAmount2.toFixed(2)}`;
+          document.getElementById('extra').innerText = `a pagar con MP: $${recharge2.toFixed(2)}`;
+        }
+    </script>
+  
+  <h1 id='result'></h1>
+  <h1 id='extra'></h1>
+</body>
+</html>
